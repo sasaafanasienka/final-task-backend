@@ -3,10 +3,11 @@ import { PORT } from './constants';
 
 import * as serverService from './services/server.service';
 
+const MONGO_LINK = "mongodb+srv://anton:iVQCssOPfSuJNOd9@cluster0.fa601fa.mongodb.net/?retryWrites=true&w=majority";
 
 (async () => {
   try {
-    await mongoose.connect('mongodb+srv://${UserName}:${Password}@${clasterInfo}.mongodb.net/managerApp');
+    await mongoose.connect(MONGO_LINK);
     serverService.server.listen(process.env.PORT || PORT, function () {
       console.log('Сервер ожидает подключения...');
     })
